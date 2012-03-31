@@ -1,0 +1,23 @@
+# vim: set ft=yaml expandtab tabstop=2 shiftwidth=2 softtabstop=2:
+web1:
+  document_root: /app/webroot
+  shared_writable_dirs:
+    - app/tmp
+    - app/tmp/cache
+    - app/tmp/cache/models
+    - app/tmp/cache/persistent
+    - app/tmp/cache/views
+    - app/tmp/logs
+    - app/tmp/sessions
+    - app/tmp/tests
+  php_extensions:
+    - mcrypt
+    - mbstring
+    - pdo_mysql
+    - apc
+  after_build:
+    - "mv app/Config/database.php.pagoda app/Config/database.php"
+
+db1:
+  type: mysql
+
